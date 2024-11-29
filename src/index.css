@@ -1,13 +1,140 @@
-body {
+/* Global Reset */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Main App Container */
+.App {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Header Styling */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+  background: -webkit-linear-gradient(45deg, #ff0099, #493240);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Participants Section */
+.participants-section {
+  margin-top: 30px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Participants List */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+li:hover {
+  background-color: #f4f4f4;
+  transform: translateX(5px);
+}
+
+li .name {
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 18px;
+}
+
+li .status {
+  background-color: #ff427f;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+/* Remove button (optional) */
+li .remove-btn {
+  background-color: #ff6f91;
+  color: white;
+  font-size: 14px;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+li .remove-btn:hover {
+  background-color: #ff427f;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .App {
+    padding: 25px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  li {
+    font-size: 16px;
+  }
+
+  li .remove-btn {
+    padding: 6px 12px;
+  }
 }

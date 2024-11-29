@@ -1,38 +1,204 @@
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body Background with Pink Gradient */
+body {
+  background: linear-gradient(135deg, #ea0432, #e6445c);
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Main App Container */
 .App {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+  position: relative;
+  animation: fadeIn 1s ease-out;
+  overflow-y: auto;
+  /* Allow vertical scrolling when content overflows */
+  max-height: 90vh;
+  /* Limit the height of the main container */
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Header Styling */
+h1 {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 30px;
+  letter-spacing: 3px;
+  background: -webkit-linear-gradient(45deg, #f30771, #e10b61);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Form & Section Styles */
+.input-section,
+.expense-section {
+  margin-bottom: 30px;
+}
+
+input,
+select,
+button {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #f7f7f7;
+  transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #ff4993;
+  box-shadow: 0 0 10px rgba(255, 73, 147, 0.3);
+  background-color: #fff;
+}
+
+button {
+  background: linear-gradient(145deg, #ed1346, #ff4993);
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #e91067, #ff6f91);
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(2px);
+}
+
+/* Participants List */
+.participants-section {
+  margin-top: 30px;
+  max-height: 300px;
+  /* Set a max height */
+  overflow-y: auto;
+  /* Enable scrolling when content overflows */
+  padding-right: 10px;
+  /* Avoid clipping content due to scrollbar */
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Main Participant List Styling */
+.participants-section ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.participants-section li {
+  background-color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.participants-section li:hover {
+  background-color: #f4f4f4;
+  transform: translateX(5px);
+}
+
+.participants-section li .name {
+  font-weight: 700;
+  color: #ff4993;
+  font-size: 18px;
+}
+
+/* Compact Styling for the Remove Button */
+.remove-btn {
+  background-color: #f2197e;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 64, 64, 0.3);
+  display: inline-flex;
+  align-items: center;
+  width: 100px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.remove-btn:hover {
+  background-color: #e00c7a;
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(255, 64, 64, 0.4);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.remove-btn:active {
+  background-color: #f7085c;
+  transform: scale(0.98);
+  box-shadow: 0 3px 8px rgba(255, 64, 64, 0.3);
+}
+
+.remove-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 64, 64, 0.4);
+}
+
+/* Expense Section */
+.expense-section {
+  margin-bottom: 30px;
+  /* Removed the scrolling functionality */
+}
+
+/* Summary Section Styling */
+.summary-section {
+  max-height: 300px;
+  /* Set a max height */
+  overflow-y: auto;
+  /* Enable scrolling when content overflows */
+  padding-right: 10px;
+  /* Avoid clipping content due to scrollbar */
 }
